@@ -10,7 +10,7 @@
 #define STUB_FUNCS
 #ifdef STUB_FUNCS
 int uptime2(int i) {return 0;}
-#endif
+#endif 
 
 
 /* IMPORTANT INSTRUCTION: the code below should not be changed. 

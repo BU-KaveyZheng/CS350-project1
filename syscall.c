@@ -82,6 +82,8 @@ argstr(int n, char **pp)
   return fetchstr(addr, pp);
 }
 
+
+
 extern int sys_chdir(void);
 extern int sys_close(void);
 extern int sys_dup(void);
@@ -144,4 +146,16 @@ syscall(void)
             curproc->pid, curproc->name, num);
     curproc->tf->eax = -1;
   }
+}
+
+int
+sys_uptime(void)
+{
+    struct rtcdate *r;
+    
+    if (argptr(0, (char**)&r, sizeof(*r)) < 0)
+        return -1;
+
+    cmostime(r);
+    return 0;
 }

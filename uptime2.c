@@ -11,8 +11,6 @@
 //#ifdef STUB_FUNCS
 //#endif 
 
-int uptime2(int i);
-
 
 /* IMPORTANT INSTRUCTION: the code below should not be changed. 
     Failure to follow this instruction will lead to zero point 

@@ -22,7 +22,7 @@ int dup(int);
 int getpid(void);
 char* sbrk(int);
 int sleep(int);
-int uptime2(void);
+int uptime2(int);
 int shutdown(void);
 
 // ulib.c

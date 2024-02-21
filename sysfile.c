@@ -349,6 +349,30 @@ sys_mkdir(void)
   return 0;
 }
 
+int sys_mkdir2(void) {
+  char *path1;
+  char *path2;
+  struct inode *ip;
+
+  begin_op();
+  if(argstr(0, &path1) < 0 || (ip = create(path1, T_DIR, 0, 0)) == 0){
+    end_op();
+    return -1;
+  }
+  iunlockput(ip);
+  end_op();
+  
+  begin_op();
+  if(argstr(1, &path2) < 0 || (ip = create(path2, T_DIR, 0, 0)) == 0){
+    end_op();
+    return -1;
+  }
+  iunlockput(ip);
+  end_op();
+  
+  return 0;
+}
+
 int
 sys_mknod(void)
 {

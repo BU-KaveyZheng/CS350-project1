@@ -25,6 +25,7 @@ OBJS = \
 	trapasm.o\
 	trap.o\
 	uart.o\
+	uptime.o\
 	vectors.o\
 	vm.o\
 

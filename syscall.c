@@ -153,7 +153,7 @@ sys_uptime(void)
 {
     struct rtcdate *r;
     
-    if (argptr(0, (char**)&r, sizeof(*r)) < 0)
+    if (argptr(0, (char**)&r, sizeof(&r)) < 0)
         return -1;
 
     cmostime(r);

@@ -105,7 +105,7 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
-extern int sys_uptime2(void);
+extern int sys_uptime2(int option);
 extern int sys_shutdown(void);
 
 static int (*syscalls[])(void) = {
@@ -123,7 +123,6 @@ static int (*syscalls[])(void) = {
 [SYS_sbrk]     sys_sbrk,
 [SYS_sleep]    sys_sleep,
 [SYS_uptime]   sys_uptime,
-[SYS_uptime2]  sys_uptime2,
 [SYS_open]     sys_open,
 [SYS_write]    sys_write,
 [SYS_mknod]    sys_mknod,
@@ -132,6 +131,7 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]    sys_mkdir,
 [SYS_close]    sys_close,
 [SYS_shutdown] sys_shutdown,
+[SYS_uptime2]  sys_uptime2,
 };
 
 void

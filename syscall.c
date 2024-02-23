@@ -82,6 +82,8 @@ argstr(int n, char **pp)
   return fetchstr(addr, pp);
 }
 
+
+
 extern int sys_chdir(void);
 extern int sys_close(void);
 extern int sys_dup(void);
@@ -103,6 +105,7 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+extern int sys_uptime2(int option);
 extern int sys_shutdown(void);
 extern int sys_shutdown2(void);
 extern int sys_mkdir2(void);
@@ -132,6 +135,7 @@ static int (*syscalls[])(void) = {
 [SYS_shutdown] sys_shutdown,
 [SYS_shutdown2] sys_shutdown2,
 [SYS_mkdir2] sys_mkdir2,
+[SYS_uptime2]  sys_uptime2,
 };
 
 void
@@ -149,3 +153,4 @@ syscall(void)
     curproc->tf->eax = -1;
   }
 }
+

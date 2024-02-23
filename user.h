@@ -22,7 +22,7 @@ int dup(int);
 int getpid(void);
 char* sbrk(int);
 int sleep(int);
-int uptime(void);
+int uptime2(int option);
 int shutdown(void);
 int shutdown2(char*);
 int mkdir2(char*, char*);

@@ -90,6 +90,37 @@ sys_uptime(void)
   return xticks;
 }
 
+int
+sys_uptime2(void)
+{
+    int option;
+  // checks for error in argument
+    if (argint(0, &option) < 0)
+        return -1; 
+
+  // set parameters to keep track of ticks, seconds, and minutes
+    uint xticks, seconds, minutes;
+
+  // code to get number of ticks
+    acquire(&tickslock);
+    xticks = ticks;
+    release(&tickslock);
+
+    // does calulations of other times based on # of ticks, assuming 100 ticks per second
+    seconds = xticks / 100; 
+    minutes = seconds / 60;
+    seconds %= 60;
+
+    if (option == 1)
+        return xticks; // return ticks
+    else if (option == 2)
+        return seconds; // return seconds
+    else if (option == 3)
+        return minutes; // return minutes
+    else
+        return -1; // Invalid option
+}
+
 int 
 sys_shutdown(void) 
 {

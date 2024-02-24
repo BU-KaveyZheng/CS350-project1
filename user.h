@@ -22,10 +22,11 @@ int dup(int);
 int getpid(void);
 char* sbrk(int);
 int sleep(int);
-int uptime2(int option);
 int shutdown(void);
 int shutdown2(char*);
+int exit2(int);
 int mkdir2(char*, char*);
+int uptime2(int);
 
 // ulib.c
 int stat(char*, struct stat*);

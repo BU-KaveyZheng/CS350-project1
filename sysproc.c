@@ -137,7 +137,16 @@ sys_shutdown2(void)
     return -1;
   cprintf("%s\n", msg);
 
-  outw(0xB004, 0x0|0x2000);
-  outw(0x604, 0x0|0x2000);
-  return 0;
+  sys_shutdown();
+}
+
+int
+sys_exit2(void)
+{
+  int status;
+  argint(0, &status);
+  cprintf("%d\n", status);
+
+  exit();
+  return 0; // not reached
 }

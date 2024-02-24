@@ -350,8 +350,7 @@ sys_mkdir(void)
 }
 
 int sys_mkdir2(void) {
-  char *path1;
-  char *path2;
+  char *path1, *path2;
   struct inode *ip;
 
   begin_op();

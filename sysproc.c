@@ -144,9 +144,10 @@ int
 sys_exit2(void)
 {
   int status;
-  argint(0, &status);
+  if (argint(0, &status) < 0) {
+    return -1;
+  }
   cprintf("%d\n", status);
-
   exit();
   return 0; // not reached
 }

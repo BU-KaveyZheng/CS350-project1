@@ -284,4 +284,10 @@ tar:
 	cp dist/* dist/.gdbinit.tmpl /tmp/xv6
 	(cd /tmp; tar cf - xv6) | gzip >xv6-rev10.tar.gz  # the next one will be 10 (9/17)
 
+zip:
+	tar cvvf ../Kavey_Zheng_proj1.tar ./*
+	gzip ../Kavey_Zheng_proj1.tar
+	@echo "Tarred and gzipped file is in the directory one level up"
+	@echo Kavey_Zheng_proj1.gz
+
 .PHONY: dist-test dist
